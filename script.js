@@ -32,24 +32,7 @@ window.addEventListener("load", function() {
       
       }
 
-      let faultyItems = document.getElementById("faultyItems");
-      if(cargoMass.value > 10000){
-         faultyItems.style.visibility =  "visible";
-         document.getElementById("pilotStatus").innerText = `Pilot ${pilotName.value} is ready for launch.`
-         document.getElementById("copilotStatus").innerText = `Co-pilot ${copilotName.value} is ready for launch.`
-         document.getElementById("cargoStatus").innerText = `Too much mass for the shuttle to take off`
-         document.getElementById("launchStatus").innerText = `Shuttle not ready for launch`
-         document.getElementById("launchStatus").style.color = "red"
-
-         
-      } else {
-         faultyItems.style.visibility =  "visible"
-         document.getElementById("pilotStatus").innerText = `Pilot ${pilotName.value} is ready for launch.`
-         document.getElementById("copilotStatus").innerText = `Co-pilot ${copilotName.value} is ready for launch.`
-         document.getElementById("launchStatus").innerText = `Shuttle  ready for launch`
-         document.getElementById("launchStatus").style.color = "green"
-         
-      
+     
       }
 // event.preventDefault()
 
