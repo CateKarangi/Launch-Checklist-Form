@@ -1,5 +1,6 @@
 
 window.addEventListener("load", function() {
+
       fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
       response.json().then( function(planets) {
          console.log(planets);
@@ -18,13 +19,34 @@ window.addEventListener("load", function() {
       })
    })
 
+   function checkNumber(e){
+      var key = e.which || e.keyCode;
+      console.log(e.which, e.keyCode, e)
+      if( !(key >= 48 && key <= 57) ){
+         event.preventDefault();
+      }      
+   }
+
+   function checkCharacter(e){
+      var key = e.which || e.keyCode;
+      console.log(e.which, e.keyCode, e)
+      if( !(key >= 65 && key <= 90 || key>=97 && key<=122) ){
+         event.preventDefault();
+      }      
+   }
+
+   document.querySelector("input[name=fuelLevel]").addEventListener("keypress", checkNumber);
+   document.querySelector("input[name=cargoMass]").addEventListener("keypress", checkNumber);
+   document.querySelector("input[name=pilotName]").addEventListener("keypress", checkCharacter);
+   document.querySelector("input[name=copilotName]").addEventListener("keypress", checkCharacter);
+
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
       let pilotName = document.querySelector("input[name=pilotName]");
       let copilotName = document.querySelector("input[name=copilotName]");
       let fuelLevel = document.querySelector("input[name=fuelLevel]");
       let cargoMass = document.querySelector("input[name=cargoMass]");
-      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === ""){
+      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === ""|| cargoMass.value === ""){
          alert("All fields are required!");
          //stop the form submission
          event.preventDefault();  
@@ -77,6 +99,7 @@ window.addEventListener("load", function() {
    })
    
 })
+
 
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
