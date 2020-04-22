@@ -21,16 +21,16 @@ window.addEventListener("load", function() {
 
    function checkNumber(e){
       var key = e.which || e.keyCode;
-      console.log(e.which, e.keyCode, e)
-      if( !(key >= 48 && key <= 57) ){
+      console.log(e.which, e.keyCode, isNaN(e.key))
+      if( isNaN(e.key) ){
          event.preventDefault();
       }      
    }
 
    function checkCharacter(e){
       var key = e.which || e.keyCode;
-      console.log(e.which, e.keyCode, e)
-      if( !(key >= 65 && key <= 90 || key>=97 && key<=122) ){
+      console.log(e.which, e.keyCode, isNaN(e.key))
+      if( !isNaN(e.key) ){
          event.preventDefault();
       }      
    }
